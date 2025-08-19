@@ -14,7 +14,7 @@ function TickerBar({ stocks }) {
           return (
             <div
               key={`${stock.id}-${idx}`}
-              className="flex items-center md:gap-5 gap-x-2.5 px-6 py-2"
+              className="flex items-center md:gap-5 gap-x-2.5 md:px-6 md:py-2 px-3 py-1"
             >
               <span className="font-semibold text-gray-900 dark:text-white font-robotoMono md:text-[0.8rem] text-[0.85rem]">
                 {stock.symbol || stock.company_id}
