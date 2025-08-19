@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 w-full px-4 md:py-1.5 py-1.5 md:px-8  z-20 flex items-center justify-between bg-navbarBg dark:bg-navbarDarkBg  shadow-md transition-all duration-500">
+      <nav className="fixed top-0 w-full px-4 md:py-1.5 py-2.5 md:px-8  z-20 flex items-center justify-between bg-navbarBg dark:bg-navbarDarkBg  shadow-md transition-all duration-500">
         {/* Logo */}
         <Link href={"/"}>
           <Logo />
