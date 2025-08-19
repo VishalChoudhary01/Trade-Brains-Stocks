@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import SearchBar from "@/app/components/moleclues/searchbar";
 import TickerBar from "@/app/components/moleclues/TickerBar";
-import StockList from "@/app/components/moleclues/StockList";
+import StockList from "@/app/components/organism/StockList";
 import banner from "../../public/banner/banner.jpg";
 import { motion } from "framer-motion";
 
@@ -11,7 +11,9 @@ export default function HomeClient({ initialData }) {
   if (!initialData) {
     return (
       <div className="flex h-screen items-center justify-center">
-        <p className="text-lg text-gray-500">Failed to load data. Please try again later.</p>
+        <p className="text-lg text-gray-500">
+          Failed to load data. Please try again later.
+        </p>
       </div>
     );
   }
@@ -46,7 +48,8 @@ export default function HomeClient({ initialData }) {
             transition={{ delay: 0.2 }}
             className="mt-4 text-neutral-100 md:text-lg text-[1.1rem]"
           >
-            Search and track your favorite stocks with real-time price data & charts.
+            Search and track your favorite stocks with real-time price data &
+            charts.
           </motion.p>
           <motion.div
             initial={{ opacity: 0 }}
