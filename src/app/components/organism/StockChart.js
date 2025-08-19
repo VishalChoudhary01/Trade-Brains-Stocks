@@ -21,18 +21,16 @@ ChartJS.register(
 );
 
 function StockChart({ symbol, priceData, timePeriod }) {
-  if (!priceData || !priceData.length) return null;
-
-  const getThemeColor = (variableName) => {
-    if (typeof window !== "undefined") {
-      return getComputedStyle(document.documentElement)
-        .getPropertyValue(variableName)
-        .trim();
-    }
-    return "";
-  };
-
   const colors = useMemo(() => {
+    const getThemeColor = (variableName) => {
+      if (typeof window !== "undefined") {
+        return getComputedStyle(document.documentElement)
+          .getPropertyValue(variableName)
+          .trim();
+      }
+      return "";
+    };
+
     return {
       gain: getThemeColor("--color-gainText") || "#16a34a", 
       gainBg: getThemeColor("--color-gainBadgeBg") || "rgba(22,163,74,0.1)",
@@ -42,6 +40,8 @@ function StockChart({ symbol, priceData, timePeriod }) {
       grid: getThemeColor("--color-grid") || "rgba(200,200,200,0.1)",
     };
   }, []);
+
+  if (!priceData || !priceData.length) return null;
 
   const firstClose = priceData[0].prev_close;
   const latestClose = priceData[priceData.length - 1].close;
