@@ -6,7 +6,7 @@ import { FaBars } from "react-icons/fa";
 import useDarkMode from "@/app/hooks/useDarkMode";
 import MobileSideMenu from "./MobileSideMenu";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
-import {motion} from 'motion/react';
+import { motion } from "framer-motion"; 
 
 const Navbar = () => {
   const { isDarkMode, toggleMode } = useDarkMode();
@@ -16,7 +16,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="fixed top-0 w-full px-4 md:py-1.5 py-2.5 md:px-8  z-20 flex items-center justify-between bg-navbarBg dark:bg-navbarDarkBg  shadow-md transition-all duration-500">
+      <nav className="fixed top-0 w-full px-4 py-2 md:py-3 md:px-8 z-20 flex items-center justify-between bg-navbarBg dark:bg-navbarDarkBg shadow-lg transition-all duration-300">
         {/* Logo */}
         <Link href={"/"}>
           <Logo />
@@ -26,14 +26,16 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-x-8 font-medium font-roboto text-link dark:text-linkDark">
           <Link href={"/"} className="hover:text-primary transition-colors">Home</Link>
           <Link href={"/saved"} className="hover:text-primary transition-colors">Saved</Link>
+          
+          {/* Dark Mode Toggle */}
           <motion.button
-          initial={{ opacity: 0, scale: 0.8,rotate: 0 }}
-          animate={{ opacity: 1, scale: 1,rotate: isDarkMode ? 180 : 0 }}
-          transition={{ duration: 0.8, type: "spring", stiffness: 300 }}
+            initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
+            animate={{ opacity: 1, scale: 1, rotate: isDarkMode ? 180 : 0 }}
+            transition={{ duration: 0.6, type: "spring", stiffness: 300 }}
             onClick={toggleMode}
             className="p-2 rounded-full cursor-pointer hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
           >
-            {isDarkMode ?<BsFillSunFill /> :<BsFillMoonFill /> }
+            {isDarkMode ? <BsFillSunFill /> : <BsFillMoonFill />}
           </motion.button>
         </div>
 
@@ -42,7 +44,7 @@ const Navbar = () => {
           className="md:hidden p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
           onClick={toggleMenu}
         >
-          <FaBars  className="text-link dark:text-linkDark text-lg" />
+          <FaBars className="text-link dark:text-linkDark text-lg" />
         </button>
       </nav>
 
